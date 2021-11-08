@@ -9,6 +9,20 @@ blue:
 green:
   enabled: false
 
+deployment:
+  livenessProbe: /api/v1/claims/healthz
+  readinessProbe: /api/v1/claims/healthz
+  blue:
+    enabled: false
+    tag: latest
+  green:
+    enabled: false
+    tag: latest
+  envs:
+  - name: blue
+  - name: green
+  
+  
 replicaCount: 1
 
 app:
